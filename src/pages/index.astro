@@ -10,26 +10,28 @@ import LogoCutted from "@/assets/logo-cutted.svg";
 ---
 
 <Layout>
-  <section class="">
-    <picture
-      id="hero-key"
-      class="h-screen scale-125 block overflow-hidden fixed"
-    >
-      <img
-        src={HeroKeyLogo.src}
-        alt=""
-        id="hero-key-logo"
-        class="absolute w-full h-full object-cover"
-      />
+  <div id="logo-mask" class="fixed top-0 w-full h-screen">
+    <section>
+      <picture
+        id="hero-key"
+        class="h-screen scale-125 block overflow-hidden fixed"
+      >
+        <img
+          src={HeroKeyLogo.src}
+          alt=""
+          id="hero-key-logo"
+          class="absolute w-full h-full object-cover"
+        />
 
-      <img
-        src={HeroKeyBackground.src}
-        alt=""
-        id="hero-key-background"
-        class="w-full h-full object-cover"
-      />
-    </picture>
-  </section>
+        <img
+          src={HeroKeyBackground.src}
+          alt=""
+          id="hero-key-background"
+          class="w-full h-full object-cover"
+        />
+      </picture>
+    </section>
+  </div>
 
   <div
     class="fixed flex flex-col items-center justify-between h-screen px-20 p-16 w-full"
@@ -60,3 +62,46 @@ import LogoCutted from "@/assets/logo-cutted.svg";
     </footer>
   </div>
 </Layout>
+
+<style>
+  #logo-mask {
+    background: #fff;
+    mask-image: url("/logo-stack.svg");
+    mask-position: center 25%;
+    mask-repeat: no-repeat;
+    mask-size: clamp(5000vh, 3500%, 0vh);
+  }
+</style>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      scrub: 1,
+    },
+  });
+
+  tl.to("#hero-key", { duration: 1, scale: 1 })
+    .to("#hero-key-logo", { opacity: 0 }, "<")
+    .to("#hero-footer", { opacity: 0 }, "<")
+    .to("#hero-play-button", { opacity: 0 }, "<")
+    .to(
+      "#logo-mask",
+      {
+        maskSize: "clamp(20vh, 25%, 30vh)",
+      },
+      0.15,
+    )
+    .to(
+      "#hero-key",
+      {
+        opacity: 0,
+        duration: 0.2,
+      },
+      0.4,
+    );
+</script>
