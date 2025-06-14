@@ -6,6 +6,7 @@ import HeroKeyLogo from "@/assets/hero-key-logo.webp";
 import HeroKeyBackground from "@/assets/hero-key-background.webp";
 import LogoVIIcon from "@/assets/logo-vi.svg";
 import PlayButtonIcon from "@/assets/play-button.svg";
+import LogoCutted from "@/assets/logo-cutted.svg";
 ---
 
 <Layout>
@@ -45,5 +46,17 @@ import PlayButtonIcon from "@/assets/play-button.svg";
         class="text-white m-auto size-32 mt-10 backdrop-blur-3xl rounded-full hover:scale-110 transition-transform duration-500"
       />
     </button>
+
+    <footer id="hero-footer" class="absolute bottom-8 m-auto">
+      <LogoCutted
+        class="text-white w-38 drop-shadow-[0_0_2px_rgba(255,255,255,.5),0_0_8px_#000]"
+      />
+
+      <span
+        class="absolute uppercase tracking-[6px] whitespace-nowrap text-center top-[51px] font-medium
+        text-shadow-[0_0_2px_rgba(255,255,255,.5),0_0_8px_#000] left-1/2 -translate-x-1/2 text-lg"
+        >Ver el Tráiler 2</span
+      >
+    </footer>
   </div>
 </Layout>

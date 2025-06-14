@@ -1,1 +1,61 @@
+/* Cargamos fonts locales de GTA VI */
+@font-face {
+  font-family: GTA;
+  src: url("../../public/fonts/gta-regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: GTA;
+  src: url("../../public/fonts/gta-bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: GTA;
+  src: url("../../public/fonts/gta-semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: GTANarrow;
+  src: url("../../public/fonts/gta-narrow.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: "GTA", system-ui, sans-serif;
+  --font-narrow: "GTANarrow", system-ui, sans-serif;
+
+  --animate-bounce-pulse: bounce-pulse 2s ease-in-out infinite;
+}
+
+@keyframes bounce-pulse {
+  0% {
+    transform: translateY(0);
+    scale: 0.8;
+    opacity: 0.8;
+  }
+
+  50% {
+    transform: translateY(-5px);
+    scale: 1;
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    scale: 0.8;
+    opacity: 0.8;
+  }
+}
+
 @import "tailwindcss";
